@@ -1,7 +1,7 @@
 # `Sobre o projeto`
 
 ## `Move It!`  
-projeto idealizado pela equipe da Rocketseat, e ministrado na quarta edição do NLW pelo instrutor Diego Fernandes.<br>
+projeto idealizado pela equipe da Rocketseat, e ministrado na quarta edição do NLW pelo CTO/instrutor/programador Diego Fernandes.<br>
 Foi iniciado em React e depois recriado utilizando next.js.<br>
 
 
@@ -12,4 +12,4 @@ Foi iniciado em React e depois recriado utilizando next.js.<br>
 ### `npm install`
 para instalar as dependências do projeto.<br>
 3- Execute o projeto utilizando
-### `npm start`
+### `npm run dev`
