@@ -1,47 +1,21 @@
 import { useState, useEffect, useContext } from "react"
-import { ChallengeContext } from "../contexts/ChallengeContext"
+import { CountdownContext } from "../contexts/CountdownContext"
 import styles from "../styles/Components/Countdown.module.css"
 
-// variáveis globais
-let countdownTimeout: NodeJS.Timeout
-let maxTime = 25
+// let maxTime =
 
 export function Countdown() {
-    const {startNewChallenge} = useContext(ChallengeContext)
-
-    const [isActive, setIsActive] = useState(false) // variável de estado
-    const [hasFinished, setHasFinished] = useState(false) // variável de estado
-    const [time, setTime] = useState(maxTime * 60) // variáveis do contador
-
-    
-    const minutes = Math.floor(time / 60)
-    const seconds = time % 60
+    const {
+        minutes,
+        seconds,
+        hasFinished,
+        isActive,
+        startCountdown,
+        resetCountdown,
+    } = useContext(CountdownContext)
 
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, "0").split("")
     const [secondLeft, secondRight] = String(seconds).padStart(2, "0").split("")
-
-    // função do countdown
-    function startCountdown() {
-        setIsActive(true)
-    }
-
-    function resetCountdown() {
-        clearTimeout(countdownTimeout)
-        setIsActive(false)
-        setTime(maxTime * 60)
-    }
-
-    useEffect(() => {
-        if (isActive && time > 0) {
-            countdownTimeout = setTimeout(() => {
-                setTime(time - 1)
-            }, 1000)
-        } else if (isActive && time == 0) {
-            setHasFinished(true)
-            setIsActive(false)
-            startNewChallenge()
-        }
-    }, [isActive, time])
 
     return (
         <div>
@@ -57,12 +31,9 @@ export function Countdown() {
                 </div>
             </div>
             {hasFinished ? (
-                <button
-                disabled
-                className={styles.CountdownButton}
-            >
-                Ciclo encerrado
-            </button>
+                <button disabled className={styles.CountdownButton}>
+                    Ciclo encerrado
+                </button>
             ) : (
                 <>
                     {isActive ? (
