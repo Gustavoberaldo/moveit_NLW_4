@@ -4,7 +4,7 @@ import styles from "../styles/Components/Countdown.module.css"
 
 // variáveis globais
 let countdownTimeout: NodeJS.Timeout
-let maxTime = 0.1
+let maxTime = 25
 
 export function Countdown() {
     const {startNewChallenge} = useContext(ChallengeContext)
