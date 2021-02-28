@@ -23,13 +23,14 @@ interface CountdownProviderProps {
 export const CountdownContext = createContext({} as CountdownContextData)
 // variáveis globais
 let countdownTimeout: NodeJS.Timeout
+const maxTime = 5
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
     const { startNewChallenge } = useContext(ChallengeContext)
     
     const [isActive, setIsActive] = useState(false) // variável de estado
     const [hasFinished, setHasFinished] = useState(false) // variável de estado
-    const [time, setTime] = useState(0.1 * 60) // variáveis do contador
+    const [time, setTime] = useState(maxTime * 60) // variáveis do contador
     
     const minutes = Math.floor(time / 60)
     const seconds = time % 60
@@ -43,7 +44,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
         clearTimeout(countdownTimeout)
         setIsActive(false)
         setHasFinished(false)
-        setTime(0.1 * 60)
+        setTime(maxTime * 60)
     }
 
     useEffect(() => {
