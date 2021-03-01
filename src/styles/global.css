@@ -1,14 +1,17 @@
 :root{
     --white: #fff;
-    --background: #f2f3f5;
+    --background1: rgba(153, 182, 255, 0.7);
+    --background2:rgba(173, 225, 255, 0.7);
     --gray-line: #DCDDE0;
     --text: #666665;
     --text-highlight: #B3B9FF;
     --title: #2E384D;
     --red: #E83F5B;
     --green: #4CD62B;
-    --blue: #5965E0;
-    --blue-dark: #4953B8;
+    /* --blue: #5965E0; */
+    --blue: #1A4975;
+    /* --blue-dark: #4953B8; */
+    --blue-dark: #102E4A;
     --blue-twitter: #2Aa9E0;
 }
 
@@ -31,7 +34,7 @@
 }
 
 body {
-    background-color: var(--background);
+    background-image: repeating-linear-gradient(45deg, var(--background1), var(--background2) 0.5rem);
     color: var(--text);
 }
 
